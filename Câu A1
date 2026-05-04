@@ -1,0 +1,46 @@
+1. Ba cách nhúng CSS vào HTML
+
+a. Inline CSS
+Ví dụ code:
+
+<p style="color:red;">Xin chào</p>
+
+Ưu điểm: Áp dụng nhanh, viết trực tiếp trên thẻ HTML.
+Nhược điểm: Khó quản lý, lặp lại nhiều, làm code rối.
+Khi nào nên dùng: Chỉnh nhanh một phần tử riêng lẻ, test giao diện.
+
+b. Internal CSS
+Ví dụ code:
+
+<head>
+<style>
+p{
+color:blue;
+}
+</style>
+</head>
+
+Ưu điểm: Quản lý CSS trong cùng 1 file HTML, dễ sửa hơn inline.
+Nhược điểm: Không tái sử dụng cho nhiều trang, file HTML dài.
+Khi nào nên dùng: Website nhỏ, trang đơn, bài thực hành.
+
+c. External CSS
+Ví dụ code:
+
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+
+File style.css
+
+p{
+color:green;
+}
+
+Ưu điểm: Quản lý tập trung, tái sử dụng nhiều trang, chuyên nghiệp.
+Nhược điểm: Cần thêm file riêng, tải chậm hơn chút nếu mạng yếu.
+Khi nào nên dùng: Website lớn, nhiều trang, dự án thực tế.
+
+2. Nếu cùng 1 element có cả 3 cách CSS đồng thời áp dụng, cách nào thắng?
+Thứ tự ưu tiên: 
++)Code chạy từ trên xuống dưới nên ưu tiên lệnh sau cùng
