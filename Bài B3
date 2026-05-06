@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Specificity Battle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<p id="demo" class="text highlight">Hello World</p>
+
+</body>
+</html>
+
+
+
+
+/* 1. Element selector - thấp nhất */
+p {
+  color: blue;
+} /* Specificity: 0,0,1 */
+
+/* 2. Class */
+.text {
+  color: green;
+} /* Specificity: 0,1,0 */
+
+/* 3. Class khác */
+.highlight {
+  color: orange;
+} /* Specificity: 0,1,0 */
+
+/* 4. 2 class */
+.text.highlight {
+  color: purple;
+} /* Specificity: 0,2,0 */
+
+/* 5. Element + class */
+p.text {
+  color: brown;
+} /* Specificity: 0,1,1 */
+
+/* 6. ID */
+#demo {
+  color: red;
+} /* Specificity: 1,0,0 */
+
+/* 7. ID + class */
+#demo.text {
+  color: pink;
+} /* Specificity: 1,1,0 */
+
+/* 8. ID + 2 class */
+#demo.text.highlight {
+  color: teal;
+} /* Specificity: 1,2,0 */
+
+/* 9. ID + element + class */
+p#demo.text {
+  color: black;
+} /* Specificity: 1,1,1 */
+
+/* 10. Inline-style giả lập (highest in CSS file) */
+#demo.text.highlight:hover {
+  color: gold;
+} /* Specificity: 1,2,1 */
+
+
+
+
+1. Danh sách 10 rules + specificity
+
+1. p → 0,0,1 → blue  
+2. .text → 0,1,0 → green  
+3. .highlight → 0,1,0 → orange  
+4. .text.highlight → 0,2,0 → purple  
+5. p.text → 0,1,1 → brown  
+6. #demo → 1,0,0 → red  
+7. #demo.text → 1,1,0 → pink  
+8. #demo.text.highlight → 1,2,0 → teal  
+9. p#demo.text → 1,1,1 → black  
+10. #demo.text.highlight:hover → 1,2,1 → gold  
+
+---
+
+2. Element cuối cùng hiển thị màu Gold
+
+---
+
+3. 
+Vì selector:
+có specificity cao nhất:
+- ID = 1
+- Class = 2
+- Pseudo-class = 1
+
+👉 Tổng: (1,2,1) (cao nhất trong tất cả rules)
+
+CSS chọn rule có specificity cao nhất → màu gold được áp dụng.
+
+---
+
+4. Thay đổi thứ tự CSS có ảnh hưởng không?
+
+KHÔNG ảnh hưởng
+Vì:
+- CSS ưu tiên specificity trước
+- Thứ tự chỉ ảnh hưởng khi specificity bằng nhau
+
+ Ở đây rule #10 luôn thắng nên đổi thứ tự vẫn không đổi kết quả
