@@ -1,0 +1,133 @@
+Bài HTML mẫu:
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>My Profile</h1>
+<nav>
+<a href="#" class="active">Home</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+</header>
+
+<main>
+<h2>Kỹ năng</h2>
+
+<table>
+<tr>
+<th>Tên</th>
+<th>Mức độ</th>
+</tr>
+
+<tr>
+<td>HTML</td>
+<td>Good</td>
+</tr>
+
+<tr>
+<td>CSS</td>
+<td>Good</td>
+</tr>
+
+<tr>
+<td>JS</td>
+<td>Basic</td>
+</tr>
+</table>
+</main>
+
+<footer>
+<p>© 2025</p>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+Phần chính:
+/* style.css */
+
+/* Reset */
+*{box-sizing:border-box;}
+
+/* Body */
+body{
+font-family:Arial, sans-serif;
+background-color:#f4f4f4;
+color:#333;
+line-height:1.6;
+margin:0;
+}
+
+/* Header */
+header{
+background:linear-gradient(to right, #4facfe, #00f2fe);
+color:white;
+padding:20px;
+text-align:center;
+}
+
+/* Navigation */
+nav a{
+text-decoration:none;
+color:#333;
+margin:0 10px;
+}
+
+nav a:hover{
+color:#007BFF;
+text-decoration:underline;
+}
+
+nav a.active{
+color:red;
+font-weight:bold;
+}
+
+/* Table */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th, td{
+border:1px solid #ddd;
+padding:10px;
+text-align:left;
+}
+
+th{
+background:#333;
+color:white;
+}
+
+tr:nth-child(even){
+background:#f9f9f9;
+}
+
+tr:hover{
+background:#ddd;
+}
+
+/* Footer */
+footer{
+background:#333;
+color:#ccc;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
