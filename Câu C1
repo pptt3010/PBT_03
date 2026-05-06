@@ -1,0 +1,123 @@
+1. Tính chiều rộng thực tế (content-box)
+
++>Sidebar:
+- width: 300px  
+- padding: 20 + 20 = 40px  
+- border: 1 + 1 = 2px  
+
+Tổng thực tế:
+300 + 40 + 2 = 342px
+---
+
++>Content:
+- width: 660px  
+- padding: 30 + 30 = 60px  
+- border: 1 + 1 = 2px  
+
+Tổng thực tế:
+660 + 60 + 2 = 722px
+
+---
+
+2. layout vỡ do:
+
+Tổng layout: 342 + 722 = 1064px
+
+Container chỉ có 960px → bị vỡ layout
+
+Vì dùng **content-box**:
+- width chỉ tính nội dung
+- padding + border bị cộng thêm
+→ tổng vượt 960px → content bị xuống dòng
+
+---
+
+3. Cách sửa 1 (dùng border-box)
+
+
+
+
+HTML:
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Border-box Fix Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>✅ BORDER-BOX FIX (KHÔNG VỠ LAYOUT)</h2>
+
+<div class="container">
+  <div class="sidebar">Sidebar (300px)</div>
+  <div class="content">Content (660px)</div>
+</div>
+
+</body>
+</html>
+
+
+CSS Trường hợp 1:
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #f2f2f2;
+}
+
+/* CONTENT */
+.content {
+  width: 660px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #ddd;
+}
+
+
+
+
+CSS trường hợp 2:
+/* KHÔNG dùng border-box */
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 258px; 
+  /* 300 - (padding 20x2 = 40) - (border 1x2 = 2) */
+  padding: 20px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #f2f2f2;
+}
+
+/* CONTENT */
+.content {
+  width: 598px; 
+  /* 660 - (padding 30x2 = 60) - (border 1x2 = 2) */
+  padding: 30px;
+  border: 1px solid #ccc;
+  float: left;
+  background: #ddd;
+}
+
+h2 {
+  text-align: center;
+}
