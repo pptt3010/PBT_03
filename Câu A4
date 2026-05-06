@@ -1,0 +1,15 @@
+1. Specificity score (a, b, c)
+   Rule A: p → (0,0,1)
+   Rule B: .price → (0,1,0)
+   Rule C: #main-price → (1,0,0)
+   Rule D: p.price → (0,1,1)
+
+2. Element sẽ có màu gì?
+   Màu (red) . Vì Rule C có specificity cao nhất (1,0,0) nên thắng các rule còn lại.
+
+3. Nếu thêm inline style <p class="price" id="main-price" style="color: orange;">
+   Màu (orange). Vì inline style có độ ưu tiên cao hơn tất cả các selector thông thường.
+
+4. Nếu Rule A thêm `!important`
+   p { color: black !important; }
+   Màu (black). Vì `!important` có độ ưu tiên cao hơn cả inline, id, class và tag nên sẽ ghi đè tất cả các rule khác.
