@@ -1,0 +1,46 @@
+1. Sản phẩm A (h2)
+HTML:
+<h2 class="title highlight">Sản phẩm A</h2>
+ font-size:
+.card .title { font-size: 20px; } áp dụng trực tiếp
+ +>font-size = 20px
+  +>color:
+Các rule liên quan:
+#featured .title { color: red; }
+.card { color: blue; }
+.highlight { color: green !important; }
+ !important mạnh nhất → thắng tất cả
+ color = green
+
+
+ 2. Mô tả sản phẩm (p trong featured)
+HTML:
+<p>Mô tả sản phẩm</p>
+ +>color:
+.card { color: blue; } → áp dụng cho toàn card
+p { color: inherit; } → kế thừa từ .card
+ .card = blue
+ p = inherit blue
+  color = blue
+ 
+
+  3. Sản phẩm B (h2)
+HTML:
+<h2 class="title">Sản phẩm B</h2>
+ +>font-size:
+.card .title { font-size: 20px; }
+ font-size = 20px
+ +>color:
+.card { color: blue; } áp dụng
+không có highlight
+không có override mạnh hơn
+ color = blue
+ 
+
+ 4. Mô tả sản phẩm B (p.highlight)
+HTML:
+<p class="highlight">Mô tả sản phẩm B</p>
+ +>color:
+.highlight { color: green !important; }
+ !important thắng tất cả
+ color = green
